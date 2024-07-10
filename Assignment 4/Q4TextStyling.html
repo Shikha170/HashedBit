@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling and CSS Properties</title>
+    <style>
+        .text-here {
+            font-size: 55px;
+            font-family: sans-serif;
+            color: black;
+            text-decoration: none;
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            text-align: left;
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
+        .stylebt {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class='text-here' id='text-container'>This is some example text</div>
+
+    <input type="text" id="colorbox" placeholder="Enter color name or code">
+    <button id="colorchange">Change Color</button>
+
+    <br><br>
+
+    <input type="range" id="fontsize" min="10" max="100" value="55">
+    <br><br>
+
+    <button id="italic" class="stylebt">Italic</button>
+    <button id="underline" class="stylebt">Underline</button>
+    <button id="bold" class="stylebt">Bold</button>
+
+    <br><br>
+
+    <select id="list">
+        <option value="serif">Serif</option>
+        <option value="sans-serif">Sans-Serif</option>
+        <option value="monospace">Monospace</option>
+        <option value="cursive">Cursive</option>
+        <option value="fantasy">Fantasy</option>
+    </select>
+
+    <br><br>
+
+    <button id="getstyle">Get CSS</button>
+
+    <br><br>
+
+    <p id="css-props"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var textContainer = document.getElementById('text-container');
+            var colorBox = document.getElementById('colorbox');
+            var colorChangeBtn = document.getElementById('colorchange');
+            var fontSizeRange = document.getElementById('fontsize');
+            var italicBtn = document.getElementById('italic');
+            var underlineBtn = document.getElementById('underline');
+            var boldBtn = document.getElementById('bold');
+            var fontList = document.getElementById('list');
+            var getStyleBtn = document.getElementById('getstyle');
+            var cssProps = document.getElementById('css-props');
+
+            // Change text color on button click
+            colorChangeBtn.addEventListener('click', function() {
+                var colorValue = colorBox.value;
+                textContainer.style.color = colorValue;
+            });
+
+            // Change font size on range input change
+            fontSizeRange.addEventListener('input', function() {
+                var fontSizeValue = fontSizeRange.value;
+                textContainer.style.fontSize = fontSizeValue + 'px';
+            });
+
+            // Toggle italic style on button click
+            italicBtn.addEventListener('click', function() {
+                textContainer.style.fontStyle = textContainer.style.fontStyle === 'italic' ? 'normal' : 'italic';
+            });
+
+            // Toggle underline style on button click
+            underlineBtn.addEventListener('click', function() {
+                textContainer.style.textDecoration = textContainer.style.textDecoration === 'underline' ? 'none' : 'underline';
+            });
+
+            // Toggle bold style on button click
+            boldBtn.addEventListener('click', function() {
+                textContainer.style.fontWeight = textContainer.style.fontWeight === 'bold' ? 'normal' : 'bold';
+            });
+
+            // Change font family on dropdown selection
+            fontList.addEventListener('change', function() {
+                var fontFamilyValue = fontList.value;
+                textContainer.style.fontFamily = fontFamilyValue;
+            });
+
+            // Get CSS properties on button click
+            getStyleBtn.addEventListener('click', function() {
+                var computedStyle = window.getComputedStyle(textContainer);
+                var cssText = '';
+                cssText += 'color: ' + computedStyle.color + '; ';
+                cssText += 'font-size: ' + computedStyle.fontSize + '; ';
+                cssText += 'font-family: ' + computedStyle.fontFamily + '; ';
+                cssText += 'font-style: ' + computedStyle.fontStyle + '; ';
+                cssText += 'font-weight: ' + computedStyle.fontWeight + '; ';
+                cssText += 'text-decoration: ' + computedStyle.textDecoration + '; ';
+
+                cssProps.textContent = cssText;
+            });
+        });
+    </script>
+</body>
+</html>

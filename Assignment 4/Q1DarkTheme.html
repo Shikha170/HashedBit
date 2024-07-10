@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment4</title>
+    <style>
+        .day {
+            background-color: white;
+            color: black;
+        }
+
+        .night {
+            background-color: black;
+            color: gold;
+        }
+
+        .button_day {
+            background-color: white;
+            color: black;
+        }
+
+        .button_night {
+            background-color: darkblue;
+            color: white;
+        }
+
+        html, body {
+            margin: 0px;
+            height: 100%;
+        }
+
+        #app {
+            height: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="day">
+        <p>I am a HashedBit student, ready to become an awesome full stack developer</p>
+        <button onclick="swapTheme()" id="swap" class="button_day">Toggle theme</button>
+    </div>
+
+    <script>
+        function swapTheme() {
+            var appElement = document.getElementById('app');
+            var swapButton = document.getElementById('swap');
+
+            if (appElement.classList.contains('day')) {
+                appElement.classList.remove('day');
+                appElement.classList.add('night');
+            } else {
+                appElement.classList.remove('night');
+                appElement.classList.add('day');
+            }
+            if (swapButton.classList.contains('button_day')) {
+                swapButton.classList.remove('button_day');
+                swapButton.classList.add('button_night');
+                swapButton.textContent = 'Toggle to Day';
+            } else {
+                swapButton.classList.remove('button_night');
+                swapButton.classList.add('button_day');
+                swapButton.textContent = 'Toggle to Night';
+            }
+        }
+    </script>
+</body>
+</html>

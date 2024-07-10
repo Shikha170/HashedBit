@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Assignment 2</h1>
+
+    <!-- Even Numbers from 1 to 100 -->
+    <div>
+        <h2>Even Numbers from 1 to 100</h2>
+        <div id="even-numbers"></div>
+    </div>
+
+    <!-- Calculator -->
+    <div>
+        <h2>Calculator</h2>
+        <input type="number" id="num1" placeholder="Number 1">
+        <input type="number" id="num2" placeholder="Number 2">
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <button onclick="performCalculation()">Calculate</button>
+        <div id="calc-result"></div>
+    </div>
+
+    <!-- Find Tax -->
+    <div>
+        <h2>Find Tax</h2>
+        <input type="number" id="salary" placeholder="Salary">
+        <button onclick="calculateTax()">Find Tax</button>
+        <div id="tax-result"></div>
+    </div>
+
+    <!-- Sum of Products -->
+    <div>
+        <h2>Sum of Products of Corresponding Digits</h2>
+        <input type="number" id="n1" placeholder="Number 1">
+        <input type="number" id="n2" placeholder="Number 2">
+        <button onclick="findSumOfProducts()">Find Sum</button>
+        <div id="product-sum-result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
